@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 30/10/2014 10:06:12 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+  <class name="edomex.gob.mx.sgcatastral.persistencia.Capa" schema="public" table="cat_capasgc">
+    <id name="id" type="int">
+      <column name="ID_CAPA" precision="3" scale="0"/>
+      <generator class="assigned"/>
+    </id>
+    <many-to-one class="edomex.gob.mx.sgcatastral.persistencia.CategoriaCapa" fetch="select" lazy="false" name="categoriaCapa">
+      <column name="ID_AREA" not-null="true" precision="3" scale="0"/>
+    </many-to-one>
+    <property name="descripcion" type="string">
+      <column length="150" name="NOM_CAP" not-null="true"/>
+    </property>
+    <property name="wms" type="string">
+      <column length="50" name="WMS" not-null="true"/>
+    </property>
+    <property name="infownd" type="string">
+      <column length="250" name="INFOWND"/>
+    </property>
+    <property name="activo" type="int">
+      <column name="CAPA_ACTIVA" not-null="true"/>
+    </property>
+    <property name="orden" type="int">
+      <column name="ORDEN" not-null="true"/>
+    </property>
+    <property name="anio" type="string">
+      <column length="25" name="ANIO"/>
+    </property>
+  </class>
+</hibernate-mapping>

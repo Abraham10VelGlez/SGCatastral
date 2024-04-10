@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 30/10/2014 10:06:12 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+  <class catalog="ACCIDENTES" name="edomex.gob.mx.sgcatastral.persistencia.PCargaError" schema="dbo" table="P_CARGA_ERROR">
+    <id name="id" type="long">
+      <column name="ID" precision="18" scale="0"/>
+      <generator class="assigned"/>
+    </id>
+    <property name="idProceso" type="string">
+      <column length="50" name="ID_PROCESO" not-null="true"/>
+    </property>
+    <property name="descripcion" type="string">
+      <column length="250" name="DESCRIPCION" not-null="true"/>
+    </property>
+    <property name="nreg" type="java.lang.Long">
+      <column name="NREG" precision="18" scale="0"/>
+    </property>
+  </class>
+</hibernate-mapping>

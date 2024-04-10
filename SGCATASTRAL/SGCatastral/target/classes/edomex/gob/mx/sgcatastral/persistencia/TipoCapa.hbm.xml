@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 30/10/2014 10:06:12 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+  <class name="edomex.gob.mx.sgcatastral.persistencia.TipoCapa" schema="dbo" table="TIPO_CAPA">
+    <id name="id" type="short">
+      <column name="ID" precision="3" scale="0"/>
+      <generator class="assigned"/>
+    </id>
+    <property name="descripcion" type="string">
+      <column length="30" name="DESCRIPCION" not-null="true"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="capas" table="CAPA">
+      <key>
+        <column name="ID_TIPO" not-null="true" precision="3" scale="0"/>
+      </key>
+      <one-to-many class="edomex.gob.mx.sgcatastral.persistencia.Capa"/>
+    </set>
+  </class>
+</hibernate-mapping>

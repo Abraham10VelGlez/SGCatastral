@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 30/10/2014 10:06:12 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+  <class name="edomex.gob.mx.sgcatastral.persistencia.Localidad" schema="limites_territoriales" table="ccg_nomenclator_p2016_cg">
+    <id name="id" type="int">
+      <column name="gid"/>
+      <generator class="assigned"/>
+    </id>
+    <property name="localidad" type="string">
+      <column length="150" name="nombre_loc" not-null="true"/>
+    </property>
+    <property name="lon" type="big_decimal">
+      <column name="lon" not-null="true" precision="38" scale="8"/>
+    </property>
+    <property name="lat" type="big_decimal">
+      <column name="lat" not-null="true" precision="38" scale="8"/>
+    </property>
+    <property name="claveMunicipio" type="string">
+      <column length="5" name="clv_igecem" not-null="true"/>
+    </property>
+    <property name="claveLocalidad" type="string">
+      <column length="254" name="clv_u_loc"/>
+    </property>
+  </class>
+</hibernate-mapping>

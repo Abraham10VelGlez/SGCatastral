@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<b:beans xmlns="http://www.springframework.org/schema/security"
+         xmlns:b="http://www.springframework.org/schema/beans"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                        http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
+  
+    
+    <http auto-config="true" use-expressions="true" create-session="never">
+        <intercept-url pattern="/admon/**" access="isAuthenticated()" />
+        <intercept-url pattern="/inicio.do" access="isAuthenticated()" />
+        
+                   
+        <form-login login-page="/login.do"
+                  username-parameter="j_username" 
+                  password-parameter="j_password" 
+                  login-processing-url="/j_spring_security_check"
+                  default-target-url="/bienvenido.do"
+                  authentication-failure-url="/login.do?login_error=1"/>
+        <http-basic/>
+        <logout logout-success-url="/bienvenido.do" invalidate-session="true"/>
+        <!--<remember-me />
+        <session-management>
+              <concurrency-control max-sessions="1" expired-url="/login.do?login_error=2" error-if-maximum-exceeded="false" />
+        </session-management>  -->
+        
+        <csrf disabled="true"/>      
+    </http>   
+
+    <authentication-manager>
+        <authentication-provider>
+          <jdbc-user-service data-source-ref="dataSource" 
+            users-by-username-query="SELECT USUARIO, CONTRASENIA,'true' AS ENABLED  FROM USUARIO WHERE ID_ESTATUS=1 and USUARIO=?" 
+            authorities-by-username-query="SELECT US.USUARIO,PERFIL.PERFIL from PERFIL PERFIL, USUARIO US  WHERE PERFIL.ID_PERFIL=US.ID_PERFIL  AND  US.USUARIO=?" />          
+          <password-encoder hash="md5" />
+            
+        </authentication-provider>
+    </authentication-manager>      
+    
+    <b:bean id="springSecurityMessagePathMatcher" class="org.springframework.util.AntPathMatcher"/>
+    
+</b:beans>

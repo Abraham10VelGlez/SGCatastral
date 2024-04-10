@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 30/10/2014 10:06:12 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+  <class name="edomex.gob.mx.sgcatastral.persistencia.CategoriaCapa" schema="public" table="areasgc">
+    <id name="id" type="short">
+      <column name="ID_AREA" precision="3" scale="0"/>
+      <generator class="assigned"/>
+    </id>
+    <property name="categoria" type="string">
+      <column length="150" name="NOM_AREA" not-null="true"/>
+    </property>
+    <property name="activo" type="int">
+      <column name="ACTIVO" not-null="true"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="capas" table="cat_capasgc">
+      <key>
+        <column name="ID_AREA" not-null="true" precision="3" scale="0"/>
+      </key>
+      <one-to-many class="edomex.gob.mx.sgcatastral.persistencia.Capa"/>
+    </set>
+  </class>
+</hibernate-mapping>

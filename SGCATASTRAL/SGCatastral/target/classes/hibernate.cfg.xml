@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+    <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+    <property name="hibernate.connection.url">jdbc:postgresql://192.168.15.139:5432/sistema</property>
+    <property name="hibernate.connection.username">postgres</property>
+    <property name="hibernate.connection.password">geografia</property>
+    <property name="hibernate.show_sql">false</property>
+    <property name="cache.provider_class">org.hibernate.cache.HashtableCacheProvider</property>
+    <property name="transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</property>
+    <property name="current_session_context_class">thread</property>
+    <!--<property name="hbm2ddl.auto">create</property>-->
+    <!--mapping resource="edomex/gob/mx/sgcatastral/persistencia/Estado.hbm.xml"/>
+    <mapping resource="edomex/gob/mx/sgcatastral/persistencia/Capa.hbm.xml"/>
+    <mapping resource="edomex/gob/mx/sgcatastral/persistencia/PCargaError.hbm.xml"/>
+    <mapping resource="edomex/gob/mx/sgcatastral/persistencia/TipoCapa.hbm.xml"/>
+    <mapping resource="edomex/gob/mx/sgcatastral/persistencia/CategoriaCapa.hbm.xml"/>
+    <mapping resource="edomex/gob/mx/sgcatastral/persistencia/Municipio.hbm.xml"/>
+    <mapping resource="edomex/gob/mx/sgcatastral/persistencia/Localidad.hbm.xml"/-->
+  </session-factory>
+</hibernate-configuration>
